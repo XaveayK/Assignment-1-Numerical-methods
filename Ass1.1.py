@@ -16,7 +16,7 @@ def onepointone():
     for i in range(1, 11, 1):
         approx = np.math.factorial(i)
         fact = np.sqrt(2 * np.pi * i) * np.power((i / np.exp(1)), i)
-        absE = approx - fact
+        absE = abs(approx - fact)
         print("n =", i, "Absolute Error:", absE, end = "")
         print("\tRelative Error:", absE / fact)
     return
