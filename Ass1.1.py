@@ -40,9 +40,9 @@ def onepointonezero(a, b, c):
         x2 = (-b - bsq) / (2*a)
     return (x1, x2)
 
-
-def onepointonefive():
-    pass
+def onepointonefive(vector): return np.linalg.norm(vector)
+def onepointonefivel1(vector): return np.linalg.norm(vector, 1)
+def onepointonefivelinf(vector): return np.linalg.norm(vector, np.inf)
 
 
 if __name__ == '__main__':
@@ -59,3 +59,15 @@ if __name__ == '__main__':
     print(onepointonezero(1.0, -10.0**5.0, 1.0))
     print(onepointonezero(1.0, -4.0, 3.999999))
     print(onepointonezero(10.0**-155.0, -10.0**155.0, 10.0**155.0))
+    #Calls for 1.15
+    x = np.array([1,2,3,4,5])
+    print()
+    print()
+    print("All values are for the vector x1=[1,2,3,4,5]")
+    print()
+    print(onepointonefive(x))
+    print(onepointonefivel1(x))
+    print(onepointonefivelinf(x))
+    print()
+    print("Euclidean norm through numpy is more efficient than its alternatives and arguably more useful than its counterparts.")
+    print("The set back to Euclidean norm is that it takes a lot more space than its counterparts."
