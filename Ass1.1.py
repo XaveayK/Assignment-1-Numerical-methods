@@ -39,7 +39,17 @@ def onepointonezero(a, b, c):
         x1 = (-b + bsq) / (2*a)
         x2 = (-b - bsq) / (2*a)
     return (x1, x2)
+"""
+Purpose: To be robust and deal with errors
 
+def onepointonefiveRobust(vector):
+    summ = 0
+    for x in vector:
+        summ += x**2 #This isn't effected by 0's
+    return summ**(1/2) """
+"""
+Purpose: This is just as robust as my implementation above
+"""
 def onepointonefive(vector): return np.linalg.norm(vector)
 def onepointonefivel1(vector): return np.linalg.norm(vector, 1)
 def onepointonefivelinf(vector): return np.linalg.norm(vector, np.inf)
@@ -49,9 +59,7 @@ if __name__ == '__main__':
     
     #Calls the 1.1 in computing
     onepointone()
-    print("Absolute error gets larger, the relative error shrinks")
-    print()
-    print()
+    print("Absolute error gets larger, the relative error shrinks\n\n")
     #Calls each of the values for 1.10 in computing
     print(onepointonezero(6.0, 5.0, -4.0))
     print(onepointonezero(6.0*(10.0**154.0), 5.0*(10.0**154.0), -4.0*(10.0**154.0)))
@@ -61,13 +69,9 @@ if __name__ == '__main__':
     print(onepointonezero(10.0**-155.0, -10.0**155.0, 10.0**155.0))
     #Calls for 1.15
     x = np.array([1,2,3,4,5])
-    print()
-    print()
-    print("All values are for the vector x1=[1,2,3,4,5]")
-    print()
-    print(onepointonefive(x))
-    print(onepointonefivel1(x))
-    print(onepointonefivelinf(x))
-    print()
-    print("Euclidean norm through numpy is more efficient than its alternatives and arguably more useful than its counterparts.")
-    print("The set back to Euclidean norm is that it takes a lot more space than its counterparts."
+    print("\n\nAll values are for the vector x1=[1,2,3,4,5]")
+    print("\n1.10 Robust:")
+    print("Euclidean Norm robust:", onepointonefive(x))
+    print("\n1.10 non-robust")
+    print("Taxi Cab norm:", onepointonefivel1(x))
+    print("Max point norm:", onepointonefivelinf(x))
